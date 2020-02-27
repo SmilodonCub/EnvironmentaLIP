@@ -1,0 +1,46 @@
+---
+title: "environmentaLIP"
+author: "Bonnie Cooper"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+The goal: predict 'memory_response_strength'
+
+## Setup R Environment
+import the necessary packages
+
+```{r, message=F}
+library( prettydoc )
+library(ggcorrplot)
+```
+
+## Import dataset
+dataset has been uploaded to the author's github. access it with the [raw data URL](https://raw.githubusercontent.com/SmilodonCub/EnvironmentaLIP/master/1MetaTable1_filtered3%20(1).csv)
+```{r}
+#the URL to the raw data
+metadataURL <- 'https://raw.githubusercontent.com/SmilodonCub/EnvironmentaLIP/master/1MetaTable1_filtered3%20(1).csv'
+#cast as an R dataframeusing read.csv() function
+metadata_DF <- read.csv( metadataURL )
+#what are the dimentions of the dataframe
+dim( metadata_DF )
+#summary stats for 'memory_response_strength'
+summary( metadata_DF$memory_response_strength )
+```
+
+## Classic Stats Approaches
+classical measures of correlations
+```{r, warning=F}
+dataCoeff <- cor(metadata_DF, method = c("spearman"), use = 'complete.obs')
+ggcorrplot( dataCoeff, tl.cex=0 )
+```
+
+
+### Correlation Matrix

@@ -3,3 +3,5 @@ Use ML techniques to see which neuronal response characteristics are predictive 
 Environmental activity can be predicted reasonably using baseline and visual activity.
 This suggests that environmental memory is not a task specific epiphenomenon but possibly useful neuronal activity which may hel us process retinospatial signals.
 
+overall approach: use classical statistics methods to do routine analyses and then testing different machine-learning (ML) tools to improve accuracy of prediction given the small dataset available
+

@@ -13,3 +13,18 @@ head( metadata_DF )
 length( names( metadata_DF ) )
 
 summary( metadata_DF )
+dim( metadata_DF )
+
+dataCor <- rcorr(as.matrix( metadata_DF ))
+dataCoeff <- dataCor$r
+dataP <- dataCor$P
+
+dataCoeff <- cor(metadata_DF, method = c("spearman"), use = 'complete.obs')
+
+corrplot( dataCoeff, method = "circle", tl.pos='n')
+palette = colorRampPalette(c("green", "white", "red")) (50)
+heatmap(x = dataCoeff, col = palette, symm = TRUE)
+
+ggcorrplot( dataCoeff, tl.cex=0 )
+
+rquery.cormat( metadata_DF )
